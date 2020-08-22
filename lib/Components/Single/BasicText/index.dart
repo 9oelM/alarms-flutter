@@ -12,6 +12,8 @@ class BasicText extends StatelessWidget {
     return Consumer<DarkModeModel>(builder: (context, darkMode, child) {
       return Text(
         data,
+        textAlign: TextAlign.center,
+        maxLines: 1,
         style: TextStyle(
           fontSize: 42,
           fontWeight: FontWeight.bold,
