@@ -1,5 +1,4 @@
-import 'package:alarms_flutter/Components/Background/index.dart';
-
+import 'package:alarms_flutter/Components/Single/Background/index.dart';
 import 'package:flutter/widgets.dart';
 
 class GeneralBackground extends StatelessWidget {

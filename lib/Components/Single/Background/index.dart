@@ -5,7 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class Background extends StatelessWidget {
-  const Background({Key key}) : super(key: key);
+  const Background() : super();
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,6 @@ class Background extends StatelessWidget {
           width: double.infinity,
           height: double.infinity,
           color: getColorAtLevel(darkMode.isDarkMode, ColorLevels.ONE),
-          child: Text("Total price: ${darkMode.isDarkMode}"),
         );
       },
     );
