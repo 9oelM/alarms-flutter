@@ -1,16 +1,7 @@
-# alarms_flutter
+<img src='./docs/Hero.png'>
 
-A new Flutter project.
+# Alarms
 
-## Getting Started
+An alarm app made in flutter for the laziest people in the world who don't want to click multiple toggles to enable multiple alarms at regular intervals just because they cannot wake up at the right time for the first time they hear the alarm.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Designed to respect dark and light mode because I love dark mode.
