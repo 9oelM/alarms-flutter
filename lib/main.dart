@@ -1,20 +1,40 @@
-import 'dart:developer';
-
-import 'package:alarms_flutter/Components/Multi/ItemWithHeader/index.dart';
-import 'package:alarms_flutter/Layouts/GeneralBackground/index.dart';
 import 'package:alarms_flutter/Providers/DarkModeModel/index.dart';
+import 'package:alarms_flutter/Screens/Home/index.dart';
+import 'package:alarms_flutter/constants/routes.dart';
+import 'package:alarms_flutter/util/opacityTransitionBuilder.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'Components/Single/BasicButton/index.dart';
-import 'Components/Single/BasicText/index.dart';
+import 'Screens/Sound/index.dart';
 
 void main() {
   runApp(AlarmsApp());
 }
 
 class AlarmsApp extends StatelessWidget {
-  // This widget is the root of your application.
+  Route generate(RouteSettings settings) {
+    switch (settings.name) {
+      case HOME:
+        return new PageRouteBuilder(
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return Home();
+          },
+          transitionsBuilder: opacityTransitionBuilder,
+        );
+      case SOUND:
+        return new PageRouteBuilder(
+          pageBuilder: (BuildContext context, Animation<double> animation,
+              Animation<double> secondaryAnimation) {
+            return Sound();
+          },
+          transitionsBuilder: opacityTransitionBuilder,
+        );
+      default:
+        throw Error();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -22,42 +42,9 @@ class AlarmsApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => DarkModeModel()),
       ],
       child: WidgetsApp(
-          builder: (context, widget) {
-            return GeneralBackground(children: <Widget>[
-              Center(
-                  child: Row(children: [
-                Expanded(
-                    flex: 1,
-                    child: Column(children: [
-                      Container(
-                          alignment: Alignment.centerLeft,
-                          child: BasicText('Alarms')),
-                      ...[
-                        {
-                          "headerText": 'Start',
-                          "itemText": '07:30',
-                          "onItemPressed": () => log('adf'),
-                        },
-                        {
-                          "headerText": "End",
-                          "itemText": '09:30',
-                          "onItemPressed": () => log('adsf'),
-                        },
-                        {
-                          "headerText": "Interval",
-                          "itemText": '10 mins',
-                          "onItemPressed": () => log('adsf'),
-                        }
-                      ].map((item) => ItemWidthHeader(
-                          item['headerText'],
-                          BasicButton(
-                            item['itemText'],
-                            onPressed: item['onItemPressed'],
-                          )))
-                    ]))
-              ]))
-            ]);
-          },
+          onGenerateRoute: generate,
+          // onUnknownRoute: unKnownRoute,
+          initialRoute: HOME,
           color: Colors.black),
     );
   }
