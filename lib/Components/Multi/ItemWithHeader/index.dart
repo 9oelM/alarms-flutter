@@ -1,8 +1,8 @@
 import 'package:alarms_flutter/Components/Single/BasicText/index.dart';
 import 'package:flutter/widgets.dart';
 
-class ItemWidthHeader extends StatelessWidget {
-  const ItemWidthHeader(this.data, this.item) : super();
+class ItemWithHeader extends StatelessWidget {
+  const ItemWithHeader(this.data, this.item) : super();
   final String data;
   final Widget item;
   @override
